@@ -1,0 +1,30 @@
+body {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.main {
+  width: 1000px;
+  height: 750px;
+  margin: 40px auto;
+  background-color: burlywood;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  width: 460px;
+  background-color: #2196f3;
+  margin: 10px auto;
+}
+.grid-item {
+  width: 150px;
+  height: 150px;
+  border: 2px solid black;
+  font-size: 70px;
+  text-align: center;
+  cursor: pointer;
+  line-height: 150px;
+}
