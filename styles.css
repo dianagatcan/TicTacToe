@@ -16,7 +16,6 @@ body {
   display: grid;
   grid-template-columns: repeat(3, auto);
   width: 460px;
-  background-color: #2196f3;
   margin: 10px auto;
 }
 .grid-item {
