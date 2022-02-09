@@ -1,5 +1,4 @@
 const cells = Array.from(document.querySelectorAll('.grid-item'))
-// const playerTurn = document.getElementsByClassName('.turn');
 const gameResult = document.getElementById('status');
 
 
@@ -8,7 +7,6 @@ const oSign = "<img src='o.png'>";
 let clickCounter = 0;
 let xGameMoves =[];
 let oGameMoves = [];
-
 
 const win1 = [0, 1, 2]
 const win2 = [3, 4, 5]
@@ -24,7 +22,8 @@ const win8 = [2, 5, 8]
 cells.forEach((cell, index) => {
     cell.addEventListener('click', ()=>{
         handleClick(index);  
-        check();
+        checkWin();
+        
     })
 })
 
@@ -75,7 +74,7 @@ function containsAll(condition, moves) {
     return condition.every(i => moves.includes(i))
    }
 
-function check(){
+function checkWin(){
     if(containsAll(win1, xGameMoves) || containsAll(win2, xGameMoves) || containsAll(win3, xGameMoves) || 
     containsAll(win4, xGameMoves) || containsAll(win5, xGameMoves) || containsAll(win6, xGameMoves) || 
     containsAll(win7, xGameMoves) || containsAll(win8, xGameMoves)){
@@ -85,6 +84,13 @@ function check(){
     containsAll(win7, oGameMoves) || containsAll(win8, oGameMoves)){
         gameResult.innerHTML = "O player won"
     } else{
-        console.log('draw')
+        tie();
     }
-}
+    }
+
+
+    function tie(){
+        if(clickCounter === 9){
+            gameResult.innerHTML = "TIE"
+        }
+    }
