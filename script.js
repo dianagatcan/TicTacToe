@@ -1,9 +1,15 @@
 const cells = Array.from(document.querySelectorAll('.grid-item'))
 // const playerTurn = document.getElementsByClassName('.turn');
 // const gameResult = document.getElementById('status');
-let clickCounter = 0;
 
-const winning = [
+
+const xSign = "<img src='x.png'>";
+const oSign = "<img src='o.png'>";
+let clickCounter = 0;
+let xGameMoves =[];
+let oGameMoves = [];
+
+const winningConditions = [
     [0, 1, 2],
     [3, 4, 5],
     [6, 7, 8],
@@ -15,26 +21,39 @@ const winning = [
 ]
 
 
+
 //For each cell/index => add click listener 
 cells.forEach((cell, index) => {
     cell.addEventListener('click', ()=>{
         handleClick(index);  
+    
     })
 })
 
 //changes turns and insert x and o signs
+//check if the cell is empty or not
 function handleClick(index){
-    clickCounter++;
-    togglePlayer();
-    insertSign(index);
+    if(cells[index].innerHTML === ''){
+        clickCounter++;
+        togglePlayer();
+        insertSign(index);
+    } else{
+        return false;
+    }
+
 }
 
-//function for inserting x and o signs
+//function for inserting x and o signs and tracking moves 
 function insertSign(index){
     if(clickCounter%2===0){
-        cells[index].innerHTML = "<img src='o.png'>";
+        cells[index].innerHTML = oSign;
+        oGameMoves.push(index)
+        console.log(`o move ${oGameMoves}`)
+        
     } else{
-        cells[index].innerHTML = "<img src='x.png'>";
+        cells[index].innerHTML = xSign;
+        xGameMoves.push(index)
+        console.log(`x move ${xGameMoves}`)
     }
 }
 
@@ -46,3 +65,4 @@ function togglePlayer(){
         document.getElementById('player').innerHTML='O';
     }
 }
+
