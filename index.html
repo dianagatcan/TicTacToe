@@ -10,7 +10,7 @@
 <body>
    <div class="main">
        <h1 class="title">Tic Tac Toe</h1>
-       <h2 class="turn">Player <span id="player">X</span> turn</h2>
+       <h2 id="status">Player X turn</h2>
        <div class="grid-container">
         <div class="grid-item"></div>
         <div class="grid-item"></div>
@@ -22,8 +22,7 @@
         <div class="grid-item"></div>
         <div class="grid-item"></div>
       </div>
-      <h2 id="status"></h2>
-      <button id="restart">Play again</button>
+      <button id="restart" onclick="restartGame()">Play again</button>
    </div> 
    <script src="script.js"></script>
 </body>
