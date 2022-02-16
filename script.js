@@ -93,6 +93,10 @@ function getEmptyCells(){
     })
 }
 
+function addFireworks(){
+    document.body.classList.add('pyro')
+}
+
 
 function checkWin(){
     if(containsAll(win1, xGameMoves) || containsAll(win2, xGameMoves) || containsAll(win3, xGameMoves) || 
@@ -101,6 +105,7 @@ function checkWin(){
         message.innerHTML = "X player won"
         getEmptyCells()
         message.classList.add('win-text')
+        addFireworks()
 
     } else if(containsAll(win1, oGameMoves) || containsAll(win2, oGameMoves) || containsAll(win3, oGameMoves) || 
     containsAll(win4, oGameMoves) || containsAll(win5, oGameMoves) || containsAll(win6, oGameMoves) || 
@@ -108,6 +113,7 @@ function checkWin(){
         message.innerHTML = "O player won"
         getEmptyCells()
         message.classList.add('win-text')
+        addFireworks()
     } else{
         tie();
     }
@@ -119,6 +125,8 @@ function restartGame(){
     xGameMoves =[];
     oGameMoves = [];
     message.innerHTML = "Player X turn"
+    message.classList.remove('win-text')
+    document.body.classList.remove('pyro')
     cells.forEach((cell) => {
         cell.innerHTML = '';
         cell.classList.remove('noHover', 'emptyCells')
