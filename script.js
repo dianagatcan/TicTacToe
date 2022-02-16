@@ -17,6 +17,8 @@ const win7 = [1, 4, 7]
 const win8 = [2, 5, 8]
 
 
+
+
 //For each cell/index => add click listener 
 
         cells.forEach((cell, index) => {
@@ -46,11 +48,13 @@ function handleClick(index){
 function insertSign(index){
     if(clickCounter%2===0){
         cells[index].innerHTML = oSign;
+        cells[index].classList.add('noHover')
         oGameMoves.push(index)
         // console.log(`o move ${oGameMoves}`)
         
     } else{
         cells[index].innerHTML = xSign;
+        cells[index].classList.add('noHover')
         xGameMoves.push(index)
         // console.log(`x move ${xGameMoves}`)
     }
@@ -73,21 +77,37 @@ function containsAll(condition, moves) {
 }
 
 function tie(){
-    if(clickCounter === 9){
-        message.innerHTML = "TIE"
+    if(clickCounter >= 9){
+        message.innerHTML = "This game is a tie"
+        message.classList.add('win-text')
+
     }
 }
+
+
+function getEmptyCells(){
+    cells.forEach((cell) => {
+        if(cell.innerHTML === ''){
+            cell.classList.add('emptyCells', 'noHover')
+        }
+    })
+}
+
 
 function checkWin(){
     if(containsAll(win1, xGameMoves) || containsAll(win2, xGameMoves) || containsAll(win3, xGameMoves) || 
     containsAll(win4, xGameMoves) || containsAll(win5, xGameMoves) || containsAll(win6, xGameMoves) || 
     containsAll(win7, xGameMoves) || containsAll(win8, xGameMoves)){
         message.innerHTML = "X player won"
+        getEmptyCells()
+        message.classList.add('win-text')
 
     } else if(containsAll(win1, oGameMoves) || containsAll(win2, oGameMoves) || containsAll(win3, oGameMoves) || 
     containsAll(win4, oGameMoves) || containsAll(win5, oGameMoves) || containsAll(win6, oGameMoves) || 
     containsAll(win7, oGameMoves) || containsAll(win8, oGameMoves)){
         message.innerHTML = "O player won"
+        getEmptyCells()
+        message.classList.add('win-text')
     } else{
         tie();
     }
@@ -99,6 +119,10 @@ function restartGame(){
     xGameMoves =[];
     oGameMoves = [];
     message.innerHTML = "Player X turn"
-    cells.forEach(cell => cell.innerHTML = '')
+    cells.forEach((cell) => {
+        cell.innerHTML = '';
+        cell.classList.remove('noHover', 'emptyCells')
+    })
+
 }
 

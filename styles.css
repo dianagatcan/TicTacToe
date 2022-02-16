@@ -1,23 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
 body {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
   text-align: center;
+  background-color: hsl(179, 100%, 13%);
+}
+
+h1 {
+  color: white;
+  font-family: "Big Shoulders Display", cursive;
+  font-size: 50px;
+}
+
+h2 {
+  color: white;
+  font-family: "Lexend Deca", sans-serif;
+  font-size: 30px;
 }
 
 .main {
   width: 1000px;
   height: 750px;
   margin: 40px auto;
-  background-color: burlywood;
 }
 
 .grid-container {
+  background-color: hsl(184, 100%, 22%);
   display: grid;
   grid-template-columns: repeat(3, auto);
-  width: 460px;
+  width: 462px;
   margin: 10px auto;
+  border: 2px solid black;
 }
+
 .grid-item {
   width: 150px;
   height: 150px;
@@ -26,4 +44,52 @@ body {
   text-align: center;
   cursor: pointer;
   line-height: 150px;
+}
+
+.win-text {
+  color: hsl(31, 77%, 52%);
+}
+
+.grid-item:hover {
+  background-color: hsl(31, 77%, 52%);
+}
+
+/* .emptyCells {
+  background-color: hsla(184, 100%, 22%, 0.9);
+} */
+
+.noHover {
+  pointer-events: none;
+}
+
+.winLine {
+  background-color: hsl(31, 77%, 52%);
+}
+
+.button {
+  margin-top: 40px;
+  background-color: white;
+  border: 2px solid;
+  border-radius: 30px;
+  /* box-shadow: hsl(31, 77%, 52%) 4px 4px 0 0; */
+  color: #001219;
+  cursor: pointer;
+  /* display: inline-block; */
+  font-family: "Lexend Deca", sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+}
+
+.button:hover {
+  background-color: hsl(31, 77%, 52%);
+}
+
+@media (min-width: 768px) {
+  .button {
+    min-width: 120px;
+    padding: 0 25px;
+  }
 }
