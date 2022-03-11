@@ -1,7 +1,7 @@
 # 🎮 TicTacToe
 
-This repository is a recreation of the popular pen and paper game - [TicTacToe](https://en.wikipedia.org/wiki/Tic-tac-toe). 
-It is made using HTML, CSS and vanilla JS.
+This repository is a recreation of the popular pen and paper game - [TicTacToe](https://en.wikipedia.org/wiki/Tic-tac-toe). The player who succeeds in placing three of their marks in a horizontal, vertical, or diagonal row is the winner.
+The game was made using HTML, CSS and vanilla JS.
 
 [Here](https://dianagatcan.github.io/TicTacToe/) is a link to play the game, powered by GitHub Pages.
 
